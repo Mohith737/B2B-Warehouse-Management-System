@@ -1,0 +1,123 @@
+// client/src/features/dashboard/dashboard.module.scss
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-xl);
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sb-space-md);
+}
+
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cds-text-primary);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: var(--sb-text-muted);
+  margin: 0;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--sb-space-md);
+}
+
+.sectionCard {
+  background-color: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  border-radius: 4px;
+  padding: var(--sb-space-lg);
+  border: 1px solid var(--sb-border-subtle);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cds-text-primary);
+  margin: 0 0 var(--sb-space-md) 0;
+  padding-bottom: var(--sb-space-sm);
+  border-bottom: 1px solid var(--sb-border-subtle);
+}
+
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sb-space-md);
+}
+
+.tablesRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sb-space-md);
+}
+
+.rightAligned {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.stockCritical {
+  color: var(--cds-support-error);
+}
+
+.stockWarning {
+  color: var(--cds-support-warning);
+}
+
+.monospace {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.suppliersList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suppliersItem {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--sb-space-sm);
+  align-items: center;
+  padding: var(--sb-space-sm) var(--sb-space-xs);
+}
+
+.suppliersItem:nth-child(even) {
+  background-color: var(--cds-layer);
+}
+
+.rank {
+  color: var(--sb-brand-teal);
+  font-weight: 700;
+}
+
+@media (max-width: 1056px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chartsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .tablesRow {
+    grid-template-columns: 1fr;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

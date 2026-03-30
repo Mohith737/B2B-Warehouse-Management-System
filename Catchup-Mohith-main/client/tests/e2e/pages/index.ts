@@ -1,0 +1,10 @@
+// client/tests/e2e/pages/index.ts
+export * from './AuthPage'
+export * from './BackordersPage'
+export * from './BasePage'
+export * from './DashboardPage'
+export * from './GRNPage'
+export * from './POWizardPage'
+export * from './ProductsPage'
+export * from './StockLedgerPage'
+export * from './SuppliersPage'

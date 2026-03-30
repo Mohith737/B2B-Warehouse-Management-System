@@ -1,0 +1,56 @@
+/* client/src/features/admin/components/AdminUsersView.module.scss */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-lg);
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sb-space-md);
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: var(--cds-productive-heading-04);
+  color: var(--cds-text-primary);
+}
+
+.tableCard {
+  background-color: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  padding: var(--sb-space-md);
+}
+
+.formWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formCard {
+  width: min(100%, 32rem);
+  background-color: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  padding: var(--sb-space-2xl);
+  border-radius: 8px;
+}
+
+.formTitle {
+  margin: 0;
+  font-size: var(--cds-productive-heading-03);
+  color: var(--cds-text-primary);
+}
+
+.formSubtitle {
+  margin: var(--sb-space-xs) 0 0;
+  color: var(--sb-text-muted);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sb-space-sm);
+}

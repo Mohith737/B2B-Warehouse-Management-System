@@ -1,0 +1,6 @@
+# backend/requirements-dev.txt
+pytest
+pytest-asyncio
+httpx
+ruff
+black

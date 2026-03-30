@@ -1,0 +1,12 @@
+// client/src/design-system/ui/organisms/index.ts
+export * from './AdminUsersTable'
+export * from './BackorderTable'
+export * from './DashboardAdminSection'
+export * from './DashboardManagerSection'
+export * from './DashboardStaffSection'
+export * from './GRNLineScanner'
+export * from './GRNSummaryPanel'
+export * from './POLineEditor'
+export * from './ProductTable'
+export * from './StockLedgerTable'
+export * from './SupplierTable'
