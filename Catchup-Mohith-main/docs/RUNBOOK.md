@@ -145,8 +145,8 @@ Expected output:
 ## Environment variables reference
 | Variable | Required | Example | Purpose |
 |---|---|---|---|
-| `DATABASE_URL` | Yes | `postgresql+asyncpg://stockbridge:stockbridge@localhost:5432/stockbridge` | Main backend database |
-| `TEST_DATABASE_URL` | For integration tests | `postgresql+asyncpg://stockbridge:stockbridge@localhost:5432/stockbridge_test` | Test database |
+| `DATABASE_URL` | Yes | `postgresql+asyncpg://db_user:db_password@localhost:5432/db_name` | Main backend database |
+| `TEST_DATABASE_URL` | For integration tests | `postgresql+asyncpg://db_user:db_password@localhost:5432/db_name_test` | Test database |
 | `POSTGRES_USER` | Yes | `stockbridge` | Postgres user |
 | `POSTGRES_PASSWORD` | Yes | `stockbridge` | Postgres password |
 | `POSTGRES_DB` | Yes | `stockbridge` | Postgres database |

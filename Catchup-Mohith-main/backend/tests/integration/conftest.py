@@ -31,7 +31,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 TEST_DATABASE_URL=REDACTED_SEE_ENV
     "TEST_DATABASE_URL",
-    "postgresql+asyncpg://stockbridge:stockbridge@localhost:5432/stockbridge_test",
+    "postgresql+asyncpg://db_user:db_password@localhost:5432/db_name",
 )
 
 
