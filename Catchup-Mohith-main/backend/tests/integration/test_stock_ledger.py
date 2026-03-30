@@ -77,7 +77,7 @@ async def test_stock_ledger_list_default_limit_and_meta(
         quantity_change="2.0000",
         balance_after="2.0000",
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     response = await client.get(
         "/stock-ledger/",
@@ -117,7 +117,7 @@ async def test_stock_ledger_cursor_pagination(client, db_session, manager_user):
         quantity_change="1.0000",
         balance_after="3.0000",
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     first = await client.get(
         "/stock-ledger/?limit=2",
@@ -157,7 +157,7 @@ async def test_stock_ledger_filter_by_product_id(client, db_session, manager_use
         quantity_change="3.0000",
         balance_after="3.0000",
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     response = await client.get(
         f"/stock-ledger/?product_id={product_a.id}",
@@ -170,3 +170,5 @@ async def test_stock_ledger_filter_by_product_id(client, db_session, manager_use
 
     check = await db_session.execute(select(StockLedger))
     assert len(list(check.scalars().all())) == 2
+
+

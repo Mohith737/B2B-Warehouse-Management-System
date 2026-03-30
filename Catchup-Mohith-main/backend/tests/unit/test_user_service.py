@@ -86,7 +86,7 @@ async def test_create_user_hashes_password(service, mock_repo, monkeypatch):
     payload = UserCreate(
         email="new@example.com",
         full_name="New User",
-        password="StrongPass123!",
+        password=see .env file
         role=UserRole.WAREHOUSE_STAFF,
         is_active=True,
     )
@@ -105,7 +105,7 @@ async def test_create_user_raises_conflict_on_duplicate_email(service, mock_repo
     payload = UserCreate(
         email="dup@example.com",
         full_name="Duplicate",
-        password="StrongPass123!",
+        password=see .env file
         role=UserRole.ADMIN,
         is_active=True,
     )
@@ -165,3 +165,5 @@ async def test_list_users_filters_by_is_active(service, mock_repo):
     assert result.meta.total == 1
     called_params = mock_repo.list_users.await_args.args[0]
     assert called_params.is_active is False
+
+

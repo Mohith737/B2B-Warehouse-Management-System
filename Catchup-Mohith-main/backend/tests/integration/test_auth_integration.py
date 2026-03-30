@@ -41,7 +41,7 @@ async def test_logout_blacklists_token(client: AsyncClient, admin_token: str):
         "/auth/login",
         json={"email": "admin@stockbridge.com", "password": "REDACTED_SEE_ENV"},
     )
-    refresh_token = login_response.json()["data"]["refresh_token"]
+    refresh_token=see .env file
 
     logout_response = await client.post(
         "/auth/logout",
@@ -59,10 +59,12 @@ async def test_refresh_returns_new_token(client: AsyncClient, seeded_users):
     )
     assert login_response.status_code == 200
 
-    refresh_token = login_response.json()["data"]["refresh_token"]
+    refresh_token=see .env file
     refresh_response = await client.post(
         "/auth/refresh",
         json={"refresh_token": refresh_token},
     )
     assert refresh_response.status_code == 200
     assert refresh_response.json()["data"]["access_token"]
+
+

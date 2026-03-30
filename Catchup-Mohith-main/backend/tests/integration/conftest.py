@@ -29,7 +29,7 @@ from fastapi import Depends
 from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
-TEST_DATABASE_URL = REDACTED_SEE_ENV
+TEST_DATABASE_URL=REDACTED_SEE_ENV
     "TEST_DATABASE_URL",
     "postgresql+asyncpg://stockbridge:stockbridge@localhost:5432/stockbridge_test",
 )
@@ -122,29 +122,29 @@ async def seeded_users(session: AsyncSession) -> dict[str, User]:
     admin = User(
         id=uuid4(),
         email="admin@stockbridge.com",
-        hashed_password=hash_password("REDACTED_SEE_ENV"),
+        hashed_password=see .env file
         full_name="Admin User",
         role=UserRole.ADMIN,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     manager = User(
         id=uuid4(),
         email="manager@stockbridge.com",
-        hashed_password=hash_password("REDACTED_SEE_ENV"),
+        hashed_password=see .env file
         full_name="Manager User",
         role=UserRole.PROCUREMENT_MANAGER,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     staff = User(
         id=uuid4(),
         email="staff@stockbridge.com",
-        hashed_password=hash_password("REDACTED_SEE_ENV"),
+        hashed_password=see .env file
         full_name="Staff User",
         role=UserRole.WAREHOUSE_STAFF,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     session.add_all([admin, manager, staff])
     await session.flush()
@@ -261,3 +261,5 @@ def auth_headers(token: str) -> dict[str, str]:
 
 def random_uuid() -> str:
     return str(uuid4())
+
+

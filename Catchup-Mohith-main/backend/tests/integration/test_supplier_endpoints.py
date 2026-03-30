@@ -35,7 +35,7 @@ async def create_test_supplier(
 
 @pytest.mark.asyncio
 async def test_create_supplier_returns_201(client, manager_user, admin_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.post(
         "/suppliers/",
         json={
@@ -57,7 +57,7 @@ async def test_create_supplier_returns_201(client, manager_user, admin_user):
 
 @pytest.mark.asyncio
 async def test_create_supplier_duplicate_email_returns_409(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_supplier(
         client,
         token,
@@ -78,7 +78,7 @@ async def test_create_supplier_duplicate_email_returns_409(client, manager_user)
 
 @pytest.mark.asyncio
 async def test_create_supplier_staff_returns_403(client, staff_user):
-    token = await get_token(client, "staff@test.com", "StaffPass123!")
+    token=see .env file
     response = await client.post(
         "/suppliers/",
         json={
@@ -93,7 +93,7 @@ async def test_create_supplier_staff_returns_403(client, staff_user):
 
 @pytest.mark.asyncio
 async def test_get_supplier_returns_200(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_supplier(
         client,
         token,
@@ -113,7 +113,7 @@ async def test_get_supplier_returns_200(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_get_supplier_metrics_returns_list(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_supplier(
         client,
         token,
@@ -130,7 +130,7 @@ async def test_get_supplier_metrics_returns_list(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_update_supplier_returns_200(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_supplier(
         client,
         token,
@@ -149,8 +149,8 @@ async def test_update_supplier_returns_200(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_deactivate_supplier_admin_only(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_supplier(
         client,
         m_token,
@@ -173,8 +173,8 @@ async def test_deactivate_supplier_admin_only(client, admin_user, manager_user):
 
 @pytest.mark.asyncio
 async def test_activate_supplier_admin_only(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_supplier(
         client,
         m_token,
@@ -201,8 +201,8 @@ async def test_activate_supplier_admin_only(client, admin_user, manager_user):
 
 @pytest.mark.asyncio
 async def test_tier_lock_admin_only_returns_200(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_supplier(
         client,
         m_token,
@@ -227,7 +227,7 @@ async def test_tier_lock_admin_only_returns_200(client, admin_user, manager_user
 
 @pytest.mark.asyncio
 async def test_list_suppliers_pagination_default_20(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.get(
         "/suppliers/",
         headers={"Authorization": f"Bearer {token}"},
@@ -240,7 +240,7 @@ async def test_list_suppliers_pagination_default_20(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_suppliers_filter_by_tier(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_supplier(
         client,
         token,
@@ -258,8 +258,8 @@ async def test_list_suppliers_filter_by_tier(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_suppliers_filter_by_active(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_supplier(
         client,
         m_token,
@@ -281,7 +281,7 @@ async def test_list_suppliers_filter_by_active(client, admin_user, manager_user)
 
 @pytest.mark.asyncio
 async def test_list_suppliers_search_by_name(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_supplier(
         client,
         token,
@@ -299,8 +299,8 @@ async def test_list_suppliers_search_by_name(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_delete_supplier_admin_only_returns_200(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_supplier(
         client,
         m_token,
@@ -317,7 +317,7 @@ async def test_delete_supplier_admin_only_returns_200(client, admin_user, manage
 
 @pytest.mark.asyncio
 async def test_delete_supplier_manager_returns_403(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_supplier(
         client,
         token,
@@ -329,3 +329,5 @@ async def test_delete_supplier_manager_returns_403(client, manager_user):
         headers={"Authorization": f"Bearer {token}"},
     )
     assert response.status_code == 403
+
+

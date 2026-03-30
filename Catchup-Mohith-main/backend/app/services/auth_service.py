@@ -72,15 +72,15 @@ class AuthService:
         if cached_version is None:
             await set_user_version(str(user.id), user.token_version)
 
-        access_token = create_access_token(
+        access_token=see .env file
             str(user.id),
             user.token_version,
             user.role.value,
         )
-        refresh_token = create_refresh_token(str(user.id), user.token_version)
+        refresh_token=see .env file
         return TokenResponse(
-            access_token=access_token,
-            refresh_token=refresh_token,
+            access_token=see .env file
+            refresh_token=see .env file
         )
 
     async def refresh(self, refresh_token: str) -> TokenResponse:
@@ -111,8 +111,8 @@ class AuthService:
             user.role.value,
         )
         return TokenResponse(
-            access_token=new_access,
-            refresh_token=refresh_token,
+            access_token=see .env file
+            refresh_token=see .env file
         )
 
     async def logout(self, access_token_str: str, refresh_token_str: str) -> None:
@@ -129,3 +129,5 @@ class AuthService:
                     "Could not decode token during logout. "
                     "Token may already be expired or invalid."
                 )
+
+

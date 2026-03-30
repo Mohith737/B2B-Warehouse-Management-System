@@ -108,7 +108,7 @@ async def test_create_grn_returns_201(client, db_session, manager_user):
     supplier = await _create_supplier(db_session)
     product = await _create_product(db_session)
     po, _ = await _create_po_with_line(db_session, manager_user, supplier, product)
-    token = await _login_manager(client)
+    token=see .env file
 
     response = await client.post(
         "/grns/",
@@ -133,7 +133,7 @@ async def test_create_grn_against_draft_po_returns_400(
         product,
         po_status=POStatus.DRAFT,
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     response = await client.post(
         "/grns/",
@@ -151,7 +151,7 @@ async def test_add_grn_line_over_receipt_returns_400(client, db_session, manager
     po, _ = await _create_po_with_line(
         db_session, manager_user, supplier, product, qty="2.0000"
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     create_response = await client.post(
         "/grns/",
@@ -186,7 +186,7 @@ async def test_add_grn_line_barcode_mismatch_returns_400(
         supplier,
         expected_product,
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     create_response = await client.post(
         "/grns/",
@@ -216,7 +216,7 @@ async def test_complete_grn_partial_creates_backorder(client, db_session, manage
     po, _ = await _create_po_with_line(
         db_session, manager_user, supplier, product, qty="10.0000"
     )
-    token = await _login_manager(client)
+    token=see .env file
 
     create_response = await client.post(
         "/grns/",
@@ -250,3 +250,5 @@ async def test_complete_grn_partial_creates_backorder(client, db_session, manage
     backorders = list(backorder_result.scalars().all())
     assert len(backorders) == 1
     assert backorders[0].quantity_outstanding == Decimal("6.0000")
+
+

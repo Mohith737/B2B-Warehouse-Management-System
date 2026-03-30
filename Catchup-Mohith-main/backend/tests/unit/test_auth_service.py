@@ -147,7 +147,7 @@ async def test_refresh_blacklisted_token_raises_token_revoked(auth_service):
     user = make_user()
     from backend.app.core.security import create_refresh_token
 
-    token = create_refresh_token(str(user.id), 0)
+    token=see .env file
     with patch(
         "backend.app.services.auth_service.is_blacklisted",
         new=AsyncMock(return_value=True),
@@ -161,7 +161,7 @@ async def test_refresh_inactive_user_raises_account_inactive(auth_service):
     user = make_user(is_active=False)
     from backend.app.core.security import create_refresh_token
 
-    token = create_refresh_token(str(user.id), 0)
+    token=see .env file
     with (
         patch(
             "backend.app.services.auth_service.is_blacklisted",
@@ -231,7 +231,7 @@ async def test_refresh_session_invalidated_on_version_mismatch(auth_service):
     user = make_user(token_version=5)
     from backend.app.core.security import create_refresh_token
 
-    token = create_refresh_token(str(user.id), 0)
+    token=see .env file
     with (
         patch(
             "backend.app.services.auth_service.is_blacklisted",
@@ -258,7 +258,7 @@ async def test_refresh_db_token_version_mismatch_raises_session_invalidated(
     user = make_user(token_version=3)
     from backend.app.core.security import create_refresh_token
 
-    token = create_refresh_token(str(user.id), 2)
+    token=see .env file
     with (
         patch(
             "backend.app.services.auth_service.is_blacklisted",
@@ -298,3 +298,5 @@ async def test_rate_limit_blocks_sixth_attempt_not_fifth(auth_service, mock_cach
     mock_cache.get.return_value = str(settings.auth_rate_limit_attempts)
     with pytest.raises(AuthRateLimitedException):
         await auth_service.login("test@example.com", "correct_password", "1.2.3.4")
+
+

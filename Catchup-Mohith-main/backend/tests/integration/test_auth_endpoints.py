@@ -10,7 +10,7 @@ async def test_login_endpoint_returns_200_and_tokens(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
     assert response.status_code == 200
@@ -26,7 +26,7 @@ async def test_login_wrong_password_returns_401(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "WrongPassword!",
+            "password": "see .env file",
         },
     )
     assert response.status_code == 401
@@ -46,7 +46,7 @@ async def test_login_rate_limit_blocks_sixth_attempt(client, admin_user):
             "/auth/login",
             json={
                 "email": "admin@test.com",
-                "password": "WrongPass!",
+                "password": "see .env file",
             },
             headers=headers,
         )
@@ -54,7 +54,7 @@ async def test_login_rate_limit_blocks_sixth_attempt(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "WrongPass!",
+            "password": "see .env file",
         },
         headers=headers,
     )
@@ -72,10 +72,10 @@ async def test_logout_then_request_with_old_token_returns_401(
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
-    tokens = login_resp.json()["data"]
+    tokens=see .env file
     access = tokens["access_token"]
     refresh = tokens["refresh_token"]
 
@@ -101,10 +101,10 @@ async def test_logout_blacklists_refresh_token(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
-    tokens = login_resp.json()["data"]
+    tokens=see .env file
     access = tokens["access_token"]
     refresh = tokens["refresh_token"]
 
@@ -128,7 +128,7 @@ async def test_refresh_token_returns_new_access_token(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
     refresh = login_resp.json()["data"]["refresh_token"]
@@ -149,10 +149,10 @@ async def test_refresh_with_blacklisted_token_returns_401(client, admin_user):
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
-    tokens = login_resp.json()["data"]
+    tokens=see .env file
     access = tokens["access_token"]
     refresh = tokens["refresh_token"]
 
@@ -174,7 +174,7 @@ async def test_refresh_with_blacklisted_token_returns_401(client, admin_user):
 async def test_refresh_with_inactive_user_returns_401(client, inactive_user):
     from backend.app.core.security import create_refresh_token
 
-    token = create_refresh_token(str(inactive_user.id), inactive_user.token_version)
+    token=see .env file
     response = await client.post(
         "/auth/refresh",
         json={"refresh_token": token},
@@ -191,7 +191,7 @@ async def test_user_version_mismatch_returns_401_session_invalidated(
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
     access = login_resp.json()["data"]["access_token"]
@@ -208,3 +208,5 @@ async def test_user_version_mismatch_returns_401_session_invalidated(
     assert response.json()["error"]["code"] == "SESSION_INVALIDATED"
 
     await cache_service.delete(version_key, db=settings.redis_auth_db)
+
+

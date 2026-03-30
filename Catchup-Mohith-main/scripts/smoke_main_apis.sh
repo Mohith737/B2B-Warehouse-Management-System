@@ -114,21 +114,21 @@ echo "jq parser: $([ "$HAS_JQ" -eq 1 ] && echo "enabled" || echo "grep fallback"
 # Login admin -> capture ADMIN_TOKEN
 api_request POST "$BASE_URL/auth/login" "" "{\"email\":\"$ADMIN_EMAIL\",\"password\":\"$ADMIN_PASSWORD\"}"
 check "auth_login_admin_status" "200" "$RESP_STATUS"
-ADMIN_TOKEN="$(extract_token "$RESP_BODY")"
+ADMIN_TOKEN=see .env file
 ADMIN_REFRESH="$(extract_refresh "$RESP_BODY")"
 check "auth_login_admin_token_present" "yes" "$( [ -n "$ADMIN_TOKEN" ] && echo yes || echo no )"
 
 # Login manager -> capture MANAGER_TOKEN
 api_request POST "$BASE_URL/auth/login" "" "{\"email\":\"$MANAGER_EMAIL\",\"password\":\"$MANAGER_PASSWORD\"}"
 check "auth_login_manager_status" "200" "$RESP_STATUS"
-MANAGER_TOKEN="$(extract_token "$RESP_BODY")"
+MANAGER_TOKEN=see .env file
 MANAGER_REFRESH="$(extract_refresh "$RESP_BODY")"
 check "auth_login_manager_token_present" "yes" "$( [ -n "$MANAGER_TOKEN" ] && echo yes || echo no )"
 
 # Login staff -> capture STAFF_TOKEN
 api_request POST "$BASE_URL/auth/login" "" "{\"email\":\"$STAFF_EMAIL\",\"password\":\"$STAFF_PASSWORD\"}"
 check "auth_login_staff_status" "200" "$RESP_STATUS"
-STAFF_TOKEN="$(extract_token "$RESP_BODY")"
+STAFF_TOKEN=see .env file
 STAFF_REFRESH="$(extract_refresh "$RESP_BODY")"
 check "auth_login_staff_token_present" "yes" "$( [ -n "$STAFF_TOKEN" ] && echo yes || echo no )"
 
@@ -278,3 +278,5 @@ if [ "$fail" -eq 0 ]; then
   exit 0
 fi
 exit 1
+
+

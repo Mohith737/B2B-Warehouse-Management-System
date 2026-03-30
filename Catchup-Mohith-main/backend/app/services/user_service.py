@@ -58,10 +58,10 @@ class UserService:
         user = User(
             email=data.email,
             full_name=data.full_name,
-            hashed_password=hashed,
+            hashed_password=see .env file
             role=data.role,
             is_active=data.is_active,
-            token_version=0,
+            token_version=see .env file
         )
 
         tx = (
@@ -119,3 +119,5 @@ class UserService:
         )
         async with tx:
             await self.repo.soft_delete(user_id)
+
+

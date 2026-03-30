@@ -82,7 +82,7 @@ async def check_seed_status(session: AsyncSession) -> dict:
         admin_count = result.scalar_one()
         admin_seeded = admin_count > 0
 
-        default_password_warning = (
+        default_password_warning=see .env file
             settings.initial_admin_password == "REDACTED_SEE_ENV"
         )
 
@@ -97,3 +97,5 @@ async def check_seed_status(session: AsyncSession) -> dict:
             "default_password_warning": True,
             "error": str(e),
         }
+
+

@@ -20,7 +20,7 @@ from jose import jwt
 @pytest.mark.asyncio
 async def test_create_access_token_contains_correct_claims():
     user_id = str(uuid4())
-    token = create_access_token(user_id, token_version=0)
+    token=see .env file
     payload = jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
     assert payload["sub"] == user_id
     assert payload["type"] == "access"
@@ -33,7 +33,7 @@ async def test_create_access_token_contains_correct_claims():
 @pytest.mark.asyncio
 async def test_create_refresh_token_has_7_day_expiry():
     user_id = str(uuid4())
-    token = create_refresh_token(user_id, token_version=0)
+    token=see .env file
     payload = jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
     assert payload["type"] == "refresh"
     duration = payload["exp"] - payload["iat"]
@@ -43,7 +43,7 @@ async def test_create_refresh_token_has_7_day_expiry():
 @pytest.mark.asyncio
 async def test_decode_token_returns_payload():
     user_id = str(uuid4())
-    token = create_access_token(user_id, token_version=1)
+    token=see .env file
     payload = decode_token(token)
     assert payload.sub == user_id
     assert payload.type == "access"
@@ -65,7 +65,7 @@ async def test_decode_expired_token_raises_token_expired():
         "exp": int((now - timedelta(minutes=1)).timestamp()),
         "iat": int(now.timestamp()),
     }
-    expired_token = jwt.encode(
+    expired_token=see .env file
         expired_payload,
         settings.secret_key,
         algorithm=settings.algorithm,
@@ -83,8 +83,8 @@ async def test_decode_invalid_token_raises_authentication_required():
 @pytest.mark.asyncio
 async def test_token_contains_unique_jti_per_token():
     user_id = str(uuid4())
-    token1 = create_access_token(user_id, 0)
-    token2 = create_access_token(user_id, 0)
+    token1=see .env file
+    token2=see .env file
     p1 = decode_token(token1)
     p2 = decode_token(token2)
     assert p1.jti != p2.jti
@@ -137,3 +137,5 @@ def test_verify_password_returns_false_for_wrong_password():
         assert verify_password("wrongpassword", "stub-hash") is False
     finally:
         security.pwd_context = original
+
+

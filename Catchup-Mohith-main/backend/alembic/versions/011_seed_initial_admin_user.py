@@ -28,9 +28,9 @@ def upgrade() -> None:
         logger.info("Migration 011: admin user already exists, skipping seed.")
         return
 
-    password = os.environ.get("INITIAL_ADMIN_PASSWORD", "")
+    password=see .env file
     if not password:
-        password = "REDACTED_SEE_ENV"
+        password=see .env file
         logger.warning(
             "INITIAL_ADMIN_PASSWORD environment variable is not set. "
             "Using insecure fallback password. Change this immediately "
@@ -81,3 +81,5 @@ def downgrade() -> None:
         {"email": admin_email},
     )
     logger.info(f"Migration 011 downgrade: removed admin with email={admin_email}")
+
+

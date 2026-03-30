@@ -39,7 +39,7 @@ async def create_test_product(
 
 @pytest.mark.asyncio
 async def test_create_product_returns_201_with_stock_badge(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.post(
         "/products/",
         json={
@@ -59,7 +59,7 @@ async def test_create_product_returns_201_with_stock_badge(client, manager_user)
 
 @pytest.mark.asyncio
 async def test_create_product_duplicate_sku_returns_409(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_product(client, token, sku="DUPE-001")
     response = await client.post(
         "/products/",
@@ -79,7 +79,7 @@ async def test_create_product_duplicate_sku_returns_409(client, manager_user):
 async def test_create_product_warehouse_staff_returns_403(
     client, staff_user, manager_user
 ):
-    token = await get_token(client, "staff@test.com", "StaffPass123!")
+    token=see .env file
     response = await client.post(
         "/products/",
         json={
@@ -96,7 +96,7 @@ async def test_create_product_warehouse_staff_returns_403(
 
 @pytest.mark.asyncio
 async def test_get_product_returns_200_with_badge(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_product(client, token, sku="GET-TEST-001")
     response = await client.get(
         f"/products/{created['id']}",
@@ -110,8 +110,8 @@ async def test_get_product_returns_200_with_badge(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_get_soft_deleted_product_returns_404(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_product(client, m_token, sku="SOFT-DEL-001")
     await client.delete(
         f"/products/{created['id']}",
@@ -127,7 +127,7 @@ async def test_get_soft_deleted_product_returns_404(client, admin_user, manager_
 
 @pytest.mark.asyncio
 async def test_update_product_returns_200_incremented_version(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_product(client, token, sku="UPD-TEST-001")
     assert created["version"] == 1
     response = await client.put(
@@ -146,7 +146,7 @@ async def test_update_product_returns_200_incremented_version(client, manager_us
 
 @pytest.mark.asyncio
 async def test_update_product_stale_version_returns_409(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_product(client, token, sku="STALE-VER-001")
     response = await client.put(
         f"/products/{created['id']}",
@@ -164,8 +164,8 @@ async def test_update_product_stale_version_returns_409(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_delete_product_admin_only_returns_200(client, admin_user, manager_user):
-    m_token = await get_token(client, "manager@test.com", "ManagerPass123!")
-    a_token = await get_token(client, "admin@test.com", "AdminPass123!")
+    m_token=see .env file
+    a_token=see .env file
     created = await create_test_product(client, m_token, sku="DEL-ADMIN-001")
     response = await client.delete(
         f"/products/{created['id']}",
@@ -177,7 +177,7 @@ async def test_delete_product_admin_only_returns_200(client, admin_user, manager
 
 @pytest.mark.asyncio
 async def test_delete_product_manager_returns_403(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     created = await create_test_product(client, token, sku="DEL-MGR-001")
     response = await client.delete(
         f"/products/{created['id']}",
@@ -188,7 +188,7 @@ async def test_delete_product_manager_returns_403(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_products_pagination_default_20(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.get(
         "/products/",
         headers={"Authorization": f"Bearer {token}"},
@@ -201,7 +201,7 @@ async def test_list_products_pagination_default_20(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_products_page_size_over_100_returns_400(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.get(
         "/products/?page_size=101",
         headers={"Authorization": f"Bearer {token}"},
@@ -212,7 +212,7 @@ async def test_list_products_page_size_over_100_returns_400(client, manager_user
 
 @pytest.mark.asyncio
 async def test_list_products_filter_by_badge(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_product(client, token, sku="BADGE-FILTER-001")
     response = await client.get(
         "/products/?badge=out_of_stock",
@@ -225,7 +225,7 @@ async def test_list_products_filter_by_badge(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_products_search_by_name(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await client.post(
         "/products/",
         json={
@@ -247,7 +247,7 @@ async def test_list_products_search_by_name(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_products_search_by_sku(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_product(client, token, sku="FINDME-SKU-XYZ")
     response = await client.get(
         "/products/?search=FINDME-SKU",
@@ -260,7 +260,7 @@ async def test_list_products_search_by_sku(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_barcode_lookup_returns_product(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     await create_test_product(
         client,
         token,
@@ -278,10 +278,12 @@ async def test_barcode_lookup_returns_product(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_barcode_lookup_not_found_returns_404(client, manager_user):
-    token = await get_token(client, "manager@test.com", "ManagerPass123!")
+    token=see .env file
     response = await client.get(
         "/products/barcode-lookup?barcode=NONEXISTENT-BC",
         headers={"Authorization": f"Bearer {token}"},
     )
     assert response.status_code == 404
     assert response.json()["error"]["code"] == "BARCODE_NOT_FOUND"
+
+

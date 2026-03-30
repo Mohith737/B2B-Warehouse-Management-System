@@ -72,7 +72,7 @@ echo "[4/8] Running Alembic migrations"
 if ! $compose_cmd exec -T api alembic -c /app/alembic.ini upgrade head; then
   echo "  In-container migration failed. Falling back to host migration."
   activate_venv_if_present
-  HOST_DATABASE_URL="REDACTED_SEE_ENV"
+  HOST_DATABASE_URL=see .env file
   if [ -z "$HOST_DATABASE_URL" ]; then
     echo "ERROR: DATABASE_URL is not configured"
     exit 1
@@ -84,7 +84,7 @@ echo "[5/8] Seeding deterministic demo data"
 if ! $compose_cmd exec -T api python /workspace/scripts/seed.py; then
   echo "  In-container seeding failed. Falling back to host seeding."
   activate_venv_if_present
-  HOST_DATABASE_URL="REDACTED_SEE_ENV"
+  HOST_DATABASE_URL=see .env file
   if [ -z "$HOST_DATABASE_URL" ]; then
     echo "ERROR: DATABASE_URL is not configured"
     exit 1
@@ -120,3 +120,5 @@ echo "  1) Login in UI and verify role-based routes"
 echo "  2) Hit Swagger: /docs and run auth + products"
 echo "  3) Run Postman collection from postman/"
 echo "  4) Watch Temporal logs: $compose_cmd logs -f temporal-worker"
+
+

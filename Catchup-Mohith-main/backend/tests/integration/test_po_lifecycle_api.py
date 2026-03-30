@@ -61,7 +61,7 @@ async def test_get_po_returns_200_with_lines(client, manager_user, db_session):
     create_resp = await create_po_via_api(client, manager_user, supplier.id, product.id)
     po_id = create_resp.json()["data"]["id"]
 
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.get(
         f"/purchase-orders/{po_id}",
         headers={"Authorization": f"Bearer {token}"},
@@ -72,7 +72,7 @@ async def test_get_po_returns_200_with_lines(client, manager_user, db_session):
 
 @pytest.mark.asyncio
 async def test_get_po_not_found_returns_404(client, manager_user):
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.get(
         "/purchase-orders/00000000-0000-0000-0000-000000000000",
         headers={"Authorization": f"Bearer {token}"},
@@ -82,7 +82,7 @@ async def test_get_po_not_found_returns_404(client, manager_user):
 
 @pytest.mark.asyncio
 async def test_list_pos_pagination_default_20(client, manager_user):
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.get(
         "/purchase-orders/",
         headers={"Authorization": f"Bearer {token}"},
@@ -99,7 +99,7 @@ async def test_list_pos_filter_by_status(client, manager_user, db_session):
     po_id = created.json()["data"]["id"]
     await transition_po(client, manager_user, po_id, "submit")
 
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.get(
         "/purchase-orders/?status=submitted",
         headers={"Authorization": f"Bearer {token}"},
@@ -114,7 +114,7 @@ async def test_list_pos_filter_by_supplier(client, manager_user, db_session):
     product = await create_product(db_session)
     await create_po_via_api(client, manager_user, supplier.id, product.id)
 
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.get(
         f"/purchase-orders/?supplier_id={supplier.id}",
         headers={"Authorization": f"Bearer {token}"},
@@ -131,7 +131,7 @@ async def test_staff_sees_only_own_pos(client, manager_user, staff_user, db_sess
     product = await create_product(db_session)
     await create_po_via_api(client, manager_user, supplier.id, product.id)
 
-    staff_token = await get_token_for_user(client, staff_user)
+    staff_token=see .env file
     response = await client.get(
         "/purchase-orders/",
         headers={"Authorization": f"Bearer {staff_token}"},
@@ -223,7 +223,7 @@ async def test_update_draft_po_returns_200(client, manager_user, db_session):
     created = await create_po_via_api(client, manager_user, supplier.id, product.id)
     po_id = created.json()["data"]["id"]
 
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.put(
         f"/purchase-orders/{po_id}",
         json={
@@ -249,7 +249,7 @@ async def test_update_submitted_po_returns_400(client, manager_user, db_session)
     po_id = created.json()["data"]["id"]
     await transition_po(client, manager_user, po_id, "submit")
 
-    token = await get_token_for_user(client, manager_user)
+    token=see .env file
     response = await client.put(
         f"/purchase-orders/{po_id}",
         json={
@@ -274,8 +274,8 @@ async def test_delete_draft_po_admin_only(client, admin_user, manager_user, db_s
     created = await create_po_via_api(client, manager_user, supplier.id, product.id)
     po_id = created.json()["data"]["id"]
 
-    manager_token = await get_token_for_user(client, manager_user)
-    admin_token = await get_token_for_user(client, admin_user)
+    manager_token=see .env file
+    admin_token=see .env file
 
     manager_resp = await client.delete(
         f"/purchase-orders/{po_id}",
@@ -288,3 +288,5 @@ async def test_delete_draft_po_admin_only(client, admin_user, manager_user, db_s
         headers={"Authorization": f"Bearer {admin_token}"},
     )
     assert admin_resp.status_code == 200
+
+

@@ -33,7 +33,7 @@ async def login(
 ) -> SingleResponse[TokenResponse]:
     ip = get_client_ip(request)
     service = AuthService(session=session, cache=cache)
-    tokens = await service.login(
+    tokens=see .env file
         email=body.email, password=body.password, ip_address=ip
     )
     return SingleResponse(data=tokens)
@@ -50,7 +50,7 @@ async def refresh(
     cache=Depends(get_cache),
 ) -> SingleResponse[TokenResponse]:
     service = AuthService(session=session, cache=cache)
-    tokens = await service.refresh(refresh_token=body.refresh_token)
+    tokens=see .env file
     return SingleResponse(data=tokens)
 
 
@@ -67,11 +67,13 @@ async def logout(
     current_user: User = Depends(get_current_user),
 ) -> SingleResponse[dict]:
     auth_header = request.headers.get("Authorization", "")
-    access_token_str = auth_header.removeprefix("Bearer ").strip()
+    access_token_str=see .env file
 
     service = AuthService(session=session, cache=cache)
     await service.logout(
-        access_token_str=access_token_str,
-        refresh_token_str=body.refresh_token,
+        access_token_str=see .env file
+        refresh_token_str=see .env file
     )
     return SingleResponse(data={"message": "Logged out successfully"})
+
+

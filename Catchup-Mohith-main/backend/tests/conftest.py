@@ -22,7 +22,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 from alembic import command
 
-TEST_DATABASE_URL = REDACTED_SEE_ENV
+TEST_DATABASE_URL=REDACTED_SEE_ENV
     "TEST_DATABASE_URL",
     "postgresql+asyncpg://stockbridge:stockbridge@localhost:5432/stockbridge_test",
 )
@@ -96,11 +96,11 @@ async def client(db_session):
 async def admin_user(db_session) -> User:
     user = User(
         email="admin@test.com",
-        hashed_password=hash_password("AdminPass123!"),
+        hashed_password=see .env file
         full_name="Test Admin",
         role=UserRole.ADMIN,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     db_session.add(user)
     await db_session.flush()
@@ -112,11 +112,11 @@ async def admin_user(db_session) -> User:
 async def manager_user(db_session) -> User:
     user = User(
         email="manager@test.com",
-        hashed_password=hash_password("ManagerPass123!"),
+        hashed_password=see .env file
         full_name="Test Manager",
         role=UserRole.PROCUREMENT_MANAGER,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     db_session.add(user)
     await db_session.flush()
@@ -128,11 +128,11 @@ async def manager_user(db_session) -> User:
 async def staff_user(db_session) -> User:
     user = User(
         email="staff@test.com",
-        hashed_password=hash_password("StaffPass123!"),
+        hashed_password=see .env file
         full_name="Test Staff",
         role=UserRole.WAREHOUSE_STAFF,
         is_active=True,
-        token_version=0,
+        token_version=see .env file
     )
     db_session.add(user)
     await db_session.flush()
@@ -144,11 +144,11 @@ async def staff_user(db_session) -> User:
 async def inactive_user(db_session) -> User:
     user = User(
         email="inactive@test.com",
-        hashed_password=hash_password("InactivePass123!"),
+        hashed_password=see .env file
         full_name="Inactive User",
         role=UserRole.WAREHOUSE_STAFF,
         is_active=False,
-        token_version=0,
+        token_version=see .env file
     )
     db_session.add(user)
     await db_session.flush()
@@ -162,7 +162,7 @@ async def admin_token(client, admin_user) -> str:
         "/auth/login",
         json={
             "email": "admin@test.com",
-            "password": "AdminPass123!",
+            "password": "see .env file",
         },
     )
     assert response.status_code == 200
@@ -183,13 +183,13 @@ def mock_cache() -> MagicMock:
 
 
 async def get_token_for_user(client: AsyncClient, user: User) -> str:
-    password_map = {
+    password_map=see .env file
         "admin@test.com": "AdminPass123!",
         "manager@test.com": "ManagerPass123!",
         "staff@test.com": "StaffPass123!",
         "inactive@test.com": "InactivePass123!",
     }
-    password = password_map.get(user.email)
+    password=see .env file
     if password is None:
         raise RuntimeError(
             "No test password configured for user " f"email={user.email}"
@@ -205,13 +205,13 @@ async def get_token_for_user(client: AsyncClient, user: User) -> str:
             f"{user.email}: {response.status_code} "
             f"{response.text}"
         )
-    token = response.json()["data"]["access_token"]
+    token=see .env file
     setattr(user, "_access_token", token)
     return token
 
 
 def auth_headers(user: User) -> dict[str, str]:
-    token = getattr(user, "_access_token", None)
+    token=see .env file
     if not token:
         raise RuntimeError(
             "User has no cached access token. Call get_token_for_user() first."
@@ -307,3 +307,5 @@ async def transition_po(client: AsyncClient, user: User, po_id, action: str):
         raise RuntimeError(f"Unknown PO transition action: {action}")
 
     return await client.post(path, headers=auth_headers(user))
+
+

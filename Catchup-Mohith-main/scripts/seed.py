@@ -59,21 +59,21 @@ USERS = [
     {
         "key": "user-admin",
         "email": "admin@stockbridge.com",
-        "password": "REDACTED_SEE_ENV",
+        "password": "see .env file",
         "full_name": "StockBridge Admin",
         "role": UserRole.ADMIN,
     },
     {
         "key": "user-manager",
         "email": "manager@stockbridge.com",
-        "password": "REDACTED_SEE_ENV",
+        "password": "see .env file",
         "full_name": "StockBridge Manager",
         "role": UserRole.PROCUREMENT_MANAGER,
     },
     {
         "key": "user-staff",
         "email": "staff@stockbridge.com",
-        "password": "REDACTED_SEE_ENV",
+        "password": "see .env file",
         "full_name": "StockBridge Staff",
         "role": UserRole.WAREHOUSE_STAFF,
     },
@@ -579,7 +579,7 @@ async def seed_backorders(session: AsyncSession) -> int:
 
 
 async def seed() -> None:
-    database_url = REDACTED_SEE_ENV
+    database_url=REDACTED_SEE_ENV
     if not database_url:
         raise RuntimeError("DATABASE_URL is required")
 
@@ -625,3 +625,5 @@ async def seed() -> None:
 
 if __name__ == "__main__":
     asyncio.run(seed())
+
+
