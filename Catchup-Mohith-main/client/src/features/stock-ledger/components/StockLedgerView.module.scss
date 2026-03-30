@@ -1,0 +1,40 @@
+/* client/src/features/stock-ledger/components/StockLedgerView.module.scss */
+.page {
+  width: 100%;
+}
+
+.summaryTile {
+  padding: var(--sb-space-md);
+  border: 1px solid var(--sb-border-subtle);
+  background-color: var(--sb-surface-card);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sb-space-sm);
+}
+
+.summaryLabel {
+  margin: 0;
+  color: var(--sb-text-muted);
+  font-size: var(--cds-label-01);
+}
+
+.summaryValue {
+  margin: var(--sb-space-xs) 0 0;
+  color: var(--cds-text-primary);
+  font-size: var(--cds-heading-02);
+}
+
+.summaryValuePositive {
+  margin: var(--sb-space-xs) 0 0;
+  color: var(--cds-support-success);
+  font-size: var(--cds-heading-02);
+}
+
+.summaryValueNegative {
+  margin: var(--sb-space-xs) 0 0;
+  color: var(--cds-support-error);
+  font-size: var(--cds-heading-02);
+}

@@ -1,0 +1,136 @@
+// client/src/features/shared/ListPageLayout.module.scss
+.pageShell {
+  background: var(--sb-surface-page);
+}
+
+.grid {
+  padding: 0;
+}
+
+.headerRow {
+  margin-bottom: var(--sb-space-lg);
+}
+
+.summaryRow {
+  margin-bottom: var(--sb-space-lg);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sb-space-md);
+}
+
+.summaryCard {
+  background: var(--sb-surface-card);
+  border: 1px solid var(--sb-border-subtle);
+  box-shadow: var(--sb-shadow-card);
+  padding: var(--sb-space-md);
+}
+
+.summaryLabel {
+  margin: 0;
+  color: var(--sb-text-muted);
+  font-size: var(--cds-label-01);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.summaryValue {
+  margin: var(--sb-space-sm) 0 0;
+  color: var(--cds-text-primary);
+  font-size: var(--cds-productive-heading-03);
+  font-weight: 600;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sb-space-md);
+  flex-wrap: wrap;
+}
+
+.filtersRow {
+  margin-bottom: var(--sb-space-md);
+}
+
+.filtersContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-sm);
+}
+
+.filterControls {
+  display: flex;
+  gap: var(--sb-space-sm);
+  flex-wrap: wrap;
+}
+
+.searchControl {
+  flex: 1 1 20rem;
+  min-width: 14rem;
+}
+
+.dropdownControl {
+  flex: 0 1 16rem;
+  min-width: 12rem;
+}
+
+.activeFilters {
+  display: flex;
+  align-items: center;
+  gap: var(--sb-space-xs);
+  flex-wrap: wrap;
+}
+
+.tableRow {
+  margin-bottom: 0;
+}
+
+.tableCard {
+  background: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  border: 1px solid var(--sb-border-subtle);
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+}
+
+.dataTable :global(.cds--data-table tbody tr:hover) {
+  background: var(--cds-layer-hover);
+}
+
+.rowClickable {
+  cursor: pointer;
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+.monospace {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.paginationRow {
+  margin-top: 0;
+}
+
+.paginationFlush :global(.cds--pagination) {
+  border-top: 0;
+}
+
+@media (max-width: 42rem) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .searchControl,
+  .dropdownControl {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
+}

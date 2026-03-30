@@ -1,0 +1,6 @@
+# /home/mohith/Catchup-Mohith/docker-compose.dev-tools.yml
+# docker-compose.dev-tools.yml
+# pgAdmin is included in docker-compose.yml under profiles: ["dev-tools"]
+# Start it with: docker compose --profile dev-tools up
+# It will NOT start with the default: docker compose up
+# This file is kept as a reference for the dev-tools profile convention.

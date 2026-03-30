@@ -1,0 +1,54 @@
+/* client/src/features/grns/components/GRNView.module.scss */
+.page {
+  width: 100%;
+}
+
+.startCard {
+  border: 1px solid var(--sb-border-subtle);
+  box-shadow: var(--sb-shadow-card);
+  background-color: var(--sb-surface-card);
+  padding: var(--sb-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-md);
+}
+
+.startHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.hintText {
+  margin: 0;
+  color: var(--sb-text-muted);
+  font-size: var(--cds-body-short-01);
+}
+
+.startControls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sb-space-md);
+  align-items: end;
+}
+
+.startButton {
+  white-space: nowrap;
+}
+
+.activeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--sb-space-lg);
+  align-items: start;
+}
+
+@media (max-width: 66rem) {
+  .activeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .startControls {
+    grid-template-columns: 1fr;
+  }
+}

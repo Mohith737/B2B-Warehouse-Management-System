@@ -1,0 +1,13 @@
+{
+  "frontend/src/**/*.{ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "backend/**/*.py": [
+    "ruff check --fix",
+    "black"
+  ],
+  "*.{md,json,yml,yaml}": [
+    "prettier --write"
+  ]
+}

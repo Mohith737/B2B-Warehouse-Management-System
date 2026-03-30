@@ -1,0 +1,67 @@
+// client/src/design-system/ui/atoms/DashboardMetricCard.module.scss
+.card {
+  background: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  border: 1px solid var(--sb-border-subtle);
+  border-left: 3px solid transparent;
+  transition: box-shadow 0.2s ease;
+  padding: var(--sb-space-lg);
+}
+
+.card:hover {
+  box-shadow: var(--sb-shadow-card-hover);
+}
+
+.warning {
+  border-left-color: var(--cds-support-warning);
+}
+
+.danger {
+  border-left-color: var(--cds-support-error);
+}
+
+.title {
+  margin: 0;
+  color: var(--sb-text-muted);
+  font-size: var(--cds-label-01);
+}
+
+.valueRow {
+  margin-top: var(--sb-space-sm);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sb-space-xs);
+}
+
+.value {
+  margin: 0;
+  font-size: var(--cds-productive-heading-05);
+  font-weight: 700;
+  color: var(--cds-text-primary);
+}
+
+.unit {
+  color: var(--sb-text-muted);
+  font-size: var(--cds-label-01);
+}
+
+.trendRow {
+  margin-top: var(--sb-space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sb-space-xs);
+  color: var(--sb-text-muted);
+  font-size: var(--cds-label-01);
+}
+
+.trendUp {
+  color: var(--cds-support-success);
+}
+
+.trendDown {
+  color: var(--cds-support-error);
+}
+
+.trendNeutral {
+  color: var(--sb-text-muted);
+}

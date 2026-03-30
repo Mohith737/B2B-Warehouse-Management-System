@@ -1,0 +1,17 @@
+/* client/src/features/backorders/components/BackordersView.module.scss */
+.page {
+  width: 100%;
+}
+
+.filterTile {
+  padding: var(--sb-space-md);
+  border: 1px solid var(--sb-border-subtle);
+  background-color: var(--sb-surface-card);
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sb-space-md);
+}

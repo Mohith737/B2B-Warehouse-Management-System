@@ -1,0 +1,13 @@
+// client/src/design-system/ui/molecules/StockMovementChart.module.scss
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-md);
+}
+
+.tile {
+  background: var(--sb-surface-card);
+  box-shadow: var(--sb-shadow-card);
+  border: 1px solid var(--sb-border-subtle);
+  padding: var(--sb-space-lg);
+}

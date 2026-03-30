@@ -1,0 +1,106 @@
+@use '@carbon/react/scss/themes' as themes;
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$white
+);
+
+@use '@carbon/react/scss/components/button';
+@use '@carbon/react/scss/components/text-input';
+@use '@carbon/react/scss/components/form';
+@use '@carbon/react/scss/components/notification';
+@use '@carbon/react/scss/components/tag';
+@use '@carbon/react/scss/components/search';
+@use '@carbon/react/scss/components/ui-shell';
+@use '@carbon/react/scss/components/skeleton-styles';
+@use '@carbon/react/scss/components/tile';
+@use '@carbon/react/scss/components/loading';
+@use '@carbon/react/scss/components/data-table';
+@use '@carbon/react/scss/components/dropdown';
+@use '@carbon/react/scss/components/pagination';
+
+:root {
+  /* StockBridge brand colors */
+  --sb-brand-navy: #0f2d4a;
+  --sb-brand-cardboard: #6b4423;
+  --sb-brand-cardboard-dark: #4a2f18;
+  --sb-brand-cardboard-light: #a07645;
+  --sb-brand-cardboard-soft: #d2b48c;
+  --sb-brand-cardboard-cream: #f0dfc6;
+  --sb-brand-amber-soft: #e7c79a;
+  --sb-brand-amber-warm: #d6a86a;
+  --sb-brand-teal: #0e9c8e;
+  --sb-brand-teal-light: #3ddbd9;
+  --sb-surface-page: #f4f6f9;
+  --sb-surface-card: #ffffff;
+  --sb-surface-sidebar: #0ea5e9;
+  --sb-text-muted: #6f6f6f;
+  --sb-border-subtle: #e0e0e0;
+  --sb-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sb-shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* Status colors — used by StatusBadge across ALL pages */
+  --sb-status-approved: var(--cds-support-success);
+  --sb-status-pending: var(--cds-support-warning);
+  --sb-status-critical: var(--cds-support-error);
+  --sb-status-warning: var(--cds-support-warning-inverse);
+
+  /* Spacing scale — always use these, never px values */
+  --sb-space-xs: 0.25rem;
+  --sb-space-sm: 0.5rem;
+  --sb-space-md: 1rem;
+  --sb-space-lg: 1.5rem;
+  --sb-space-xl: 2rem;
+  --sb-space-2xl: 3rem;
+}
+
+:root {
+  --sb-status-draft: var(--cds-tag-background-gray);
+  --sb-status-submitted: var(--cds-tag-background-blue);
+  --sb-status-acknowledged: var(--cds-tag-background-teal);
+  --sb-status-shipped: var(--cds-tag-background-purple);
+  --sb-status-received: var(--cds-tag-background-green);
+  --sb-status-closed: var(--cds-tag-background-cool-gray);
+  --sb-status-cancelled: var(--cds-tag-background-red);
+  --sb-status-open: var(--cds-tag-background-blue);
+  --sb-status-completed: var(--cds-tag-background-green);
+  --sb-tier-silver: var(--cds-tag-background-gray);
+  --sb-tier-gold: var(--cds-tag-background-yellow);
+  --sb-tier-diamond: var(--cds-tag-background-blue);
+}
+
+.sb-status-badge {
+  text-transform: capitalize;
+}
+
+.sb-page-title,
+.sb-empty-state,
+.sb-confirmation-banner {
+  margin-block: var(--cds-spacing-03);
+  padding: var(--cds-spacing-05);
+}
+
+.sb-header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sb-space-sm);
+}
+
+.sb-header-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--sb-brand-teal);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--sb-surface-page);
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}

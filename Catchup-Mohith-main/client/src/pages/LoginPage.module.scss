@@ -1,0 +1,132 @@
+// client/src/pages/LoginPage.module.scss
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--sb-surface-page);
+}
+
+.brandPanel {
+  position: relative;
+  background: linear-gradient(
+    155deg,
+    var(--sb-brand-cardboard-cream),
+    var(--sb-brand-amber-soft) 55%,
+    var(--sb-brand-amber-warm)
+  );
+  color: var(--sb-brand-cardboard-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sb-space-lg);
+  padding: var(--sb-space-2xl);
+}
+
+.brandContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sb-space-md);
+}
+
+.logo {
+  width: 7.5rem;
+  color: var(--sb-brand-cardboard-dark);
+}
+
+.brandTitle {
+  color: var(--sb-brand-cardboard-dark);
+  margin: 0;
+  font-size: var(--cds-productive-heading-05);
+}
+
+.brandSubtitle {
+  color: var(--sb-brand-cardboard);
+  opacity: 1;
+  margin: 0;
+  font-size: var(--cds-body-short-01);
+}
+
+.brandPills {
+  position: absolute;
+  bottom: var(--sb-space-2xl);
+  display: flex;
+  gap: var(--sb-space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.brandTag {
+  background: var(--sb-brand-teal);
+  color: var(--cds-text-on-color);
+}
+
+.formPanel {
+  background: var(--sb-surface-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sb-space-xl);
+}
+
+.formCard {
+  width: 100%;
+  max-width: 25rem;
+  background: var(--sb-surface-card);
+  border: 1px solid var(--sb-border-subtle);
+  border-radius: 8px;
+  box-shadow: var(--sb-shadow-card);
+  padding: var(--sb-space-2xl);
+  transition: box-shadow 0.2s ease;
+}
+
+.formCard:hover {
+  box-shadow: var(--sb-shadow-card-hover);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: var(--cds-productive-heading-03);
+}
+
+.cardSubtitle {
+  margin: var(--sb-space-sm) 0 var(--sb-space-xl);
+  color: var(--sb-text-muted);
+  font-size: var(--cds-body-short-01);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sb-space-md);
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.footerText {
+  margin: var(--sb-space-lg) 0 0;
+  color: var(--sb-text-muted);
+  text-align: center;
+  font-size: var(--cds-body-short-01);
+}
+
+@media (max-width: 42rem) {
+  .loginPage {
+    grid-template-columns: 1fr;
+  }
+
+  .brandPanel {
+    display: none;
+  }
+
+  .formPanel {
+    padding: var(--sb-space-lg);
+  }
+
+  .formCard {
+    max-width: 100%;
+  }
+}
